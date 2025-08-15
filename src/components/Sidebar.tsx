@@ -47,33 +47,37 @@ const Sidebar: React.FC<SidebarProps> = ({
             fileInputRef={fileInputRef} 
           />
           
-          <QuickActions
-            appState={appState}
-            setAppState={setAppState}
-            onAddTextLayer={onAddTextLayer}
-            onUndo={onUndo}
-            onRedo={onRedo}
-            onExport={onExport}
-            onReset={onReset}
-            history={history}
-            historyIndex={historyIndex}
-          />
+          {appState.backgroundImage && (
+            <>
+              <QuickActions
+                appState={appState}
+                setAppState={setAppState}
+                onAddTextLayer={onAddTextLayer}
+                onUndo={onUndo}
+                onRedo={onRedo}
+                onExport={onExport}
+                onReset={onReset}
+                history={history}
+                historyIndex={historyIndex}
+              />
 
-          <TextProperties
-            appState={appState}
-            setAppState={setAppState}
-            selectedLayer={selectedLayer}
-            onUpdateLayer={onUpdateLayer}
-          />
+              <TextProperties
+                appState={appState}
+                setAppState={setAppState}
+                selectedLayer={selectedLayer}
+                onUpdateLayer={onUpdateLayer}
+              />
 
-          <LayersPanel
-            appState={appState}
-            setAppState={setAppState}
-            onUpdateLayer={onUpdateLayer}
-            onDeleteLayer={onDeleteLayer}
-            onDuplicateLayer={onDuplicateLayer}
-            onMoveLayer={onMoveLayer}
-          />
+              <LayersPanel
+                appState={appState}
+                setAppState={setAppState}
+                onUpdateLayer={onUpdateLayer}
+                onDeleteLayer={onDeleteLayer}
+                onDuplicateLayer={onDuplicateLayer}
+                onMoveLayer={onMoveLayer}
+              />
+            </>
+          )}
         </div>
       </div>
     </div>

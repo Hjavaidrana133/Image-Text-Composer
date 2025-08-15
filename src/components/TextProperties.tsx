@@ -1,7 +1,7 @@
-import React from 'react';
-import { Lock, Unlock } from 'lucide-react';
-import { TextPropertiesProps } from '../types';
-import { GOOGLE_FONTS, FONT_WEIGHTS } from '../constants';
+import React from "react";
+import { Lock, Unlock } from "lucide-react";
+import { TextPropertiesProps } from "../types";
+import { GOOGLE_FONTS, FONT_WEIGHTS } from "../constants";
 
 const TextProperties: React.FC<TextPropertiesProps> = ({
   selectedLayer,
@@ -61,11 +61,7 @@ const TextProperties: React.FC<TextPropertiesProps> = ({
               disabled={selectedLayer.locked}
             >
               {GOOGLE_FONTS.map((font) => (
-                <option
-                  key={font}
-                  value={font}
-                  style={{ fontFamily: font }}
-                >
+                <option key={font} value={font} style={{ fontFamily: font }}>
                   {font}
                 </option>
               ))}
@@ -101,12 +97,14 @@ const TextProperties: React.FC<TextPropertiesProps> = ({
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Font Size
-              <span className="ml-2 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-700">
+                Font Size
+              </label>
+              <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">
                 {selectedLayer.fontSize}px
               </span>
-            </label>
+            </div>
             <div className="px-2">
               <input
                 type="range"
@@ -125,12 +123,14 @@ const TextProperties: React.FC<TextPropertiesProps> = ({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Opacity
-              <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-sm font-medium text-gray-700">
+                Opacity
+              </label>
+              <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full font-medium">
                 {selectedLayer.opacity}%
               </span>
-            </label>
+            </div>
             <div className="px-2">
               <input
                 type="range"
@@ -182,12 +182,13 @@ const TextProperties: React.FC<TextPropertiesProps> = ({
               </div>
             </div>
           </div>
-
+        </div>
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Text Alignment
             </label>
-            <div className="flex rounded-xl border border-gray-200 p-1 bg-gray-50">
+            <div className="flex rounded-xl border border-gray-200 p-1 bg-gray-50 w-50">
               {(["left", "center", "right"] as const).map((align) => (
                 <button
                   key={align}
